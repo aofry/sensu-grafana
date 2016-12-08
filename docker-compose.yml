@@ -47,6 +47,9 @@ influxdb:
     image: influxdb
     volumes:
         - ~/junk/influxdb:/var/lib/influxdb
+        - ./docker/influxdb/influxdb.conf:/etc/influxdb/influxdb.conf:ro
     ports:
         - 8083:8083
         - 8086:8086
+        - 8089:8089
+    command: -config /etc/influxdb/influxdb.conf
