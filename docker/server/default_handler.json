@@ -1,14 +1,15 @@
 {
   "handlers": {
     "default": {
-      "type": "pipe",
-      "command": "cat"
+      "type": "set",
+      //"command": "cat"
+      "handlers": ["influxdb"]
     },
     "influxdb": {
       "type": "udp",
       "mutator": "influxdb_line_protocol",
       "socket": {
-        "host": "sensugrafana_influxdb_1",
+        "host": "influxdb",
         "port": 8090
       }
     }
