@@ -7,14 +7,14 @@ rabbitmq:
         - RABBITMQ_DEFAULT_VHOST=/sensu
 redis:
     image: redis
-uchiwa:
-    image: uchiwa/uchiwa
-    links:
-        - api
-    ports:
-        - 3000:3000
-    volumes:
-        - ./docker/uchiwa:/config
+#uchiwa:
+#    image: uchiwa/uchiwa
+#    links:
+#        - api
+#    ports:
+#        - 3000:3000
+#    volumes:
+#        - ./docker/uchiwa:/config
 server:
     container_name: sensu-server
     build: docker/server
@@ -27,19 +27,26 @@ api:
     links:
         - rabbitmq
         - redis
-client:
-    container_name: sensu-client
-    build: docker/client
-    links:
-        - rabbitmq
+#client:
+#    container_name: sensu-client
+#    build: docker/client
+#    links:
+#        - rabbitmq
 standalone_client:
     container_name: sensu-standalone-client
     build: docker/standalone-client
     links:
         - rabbitmq
-nginx:
+grafana:
     image: grafana/grafana
     links:
-        - api
+        - influxdb
     ports:
         - 9094:3000
+influxdb:
+    image: influxdb
+    volumes:
+        - ~/junk/influxdb:/var/lib/influxdb
+    ports:
+        - 8083:8083
+        - 8086:8086
