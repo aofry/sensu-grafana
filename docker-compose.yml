@@ -21,6 +21,7 @@ server:
     links:
         - rabbitmq
         - redis
+        - influxdb
 api:
     container_name: sensu-api
     build: docker/api

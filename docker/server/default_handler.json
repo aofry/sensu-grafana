@@ -3,6 +3,14 @@
     "default": {
       "type": "pipe",
       "command": "cat"
+    },
+    "influxdb": {
+      "type": "udp",
+      "mutator": "influxdb_line_protocol",
+      "socket": {
+        "host": "sensugrafana_influxdb_1",
+        "port": 8090
+      }
     }
   }
 }
