@@ -7,6 +7,7 @@ rabbitmq:
         - RABBITMQ_DEFAULT_VHOST=/sensu
 redis:
     image: redis
+    container_name: redis
 #uchiwa:
 #    image: uchiwa/uchiwa
 #    links:
@@ -28,11 +29,11 @@ api:
     links:
         - rabbitmq
         - redis
-#client:
-#    container_name: sensu-client
-#    build: docker/client
-#    links:
-#        - rabbitmq
+client:
+    container_name: sensu-client
+    build: docker/client
+    links:
+        - rabbitmq
 standalone_client:
     container_name: sensu-standalone-client
     build: docker/standalone-client
