@@ -37,3 +37,9 @@ standalone_client:
     build: docker/standalone-client
     links:
         - rabbitmq
+nginx:
+    image: grafana/grafana
+    links:
+        - api
+    ports:
+        - 9094:3000
