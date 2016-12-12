@@ -14,6 +14,8 @@ COPY influxdb-metrics.rb /etc/sensu/handlers/metrics/influxdb-metrics.rb
 COPY influxdb-metrics.json /etc/sensu/conf.d/influxdb-metrics.json
 COPY influxdb-metrics-handler.json /etc/sensu/conf.d/handlers/influxdb-metrics.json
 
+RUN chmod +x /etc/sensu/handlers/metrics/influxdb-metrics.rb
+
 #COPY influxdb_line_protocol.rb /etc/sensu/extensions/influxdb_line_protocol.rb
 
 CMD ["/usr/bin/supervisord"]
