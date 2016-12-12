@@ -3,16 +3,16 @@
     "memory": {
       "command": "/etc/sensu/plugins/check-memory.sh -w 128 -c 64",
       "interval": 10,
-      "subscribers": [
-        "test"
-      ]
+      "subscribers": ["test"],
+      "handlers": [ "influxdb" ]
     },
     "load_metrics": {
       "type": "metric",
       "command": "/etc/sensu/plugins/check-memory.sh -w 128 -c 64",
       "interval": 60,
       "subscribers": ["linux"],
-      "handlers": ["default"]
+      "handlers": ["default", "influxdb"]
+
     }
   }
 }
