@@ -23,3 +23,6 @@ docker-compose can be used to run all of the parts easily:
     docker-compose up
 
 You can view the uchiwa dashboard at http://localhost:3000
+
+to run sensu server:
+/opt/sensu/bin/sensu-server -d /etc/sensu/
