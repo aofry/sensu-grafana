@@ -19,6 +19,8 @@ redis:
 server:
     container_name: sensu-server
     build: docker/server
+    volumes:
+            - /tmp:/var/log/sensu
     links:
         - rabbitmq
         - redis

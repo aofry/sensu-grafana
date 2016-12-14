@@ -2,7 +2,7 @@
   "checks": {
     "check_cpu_metrics": {
       "type": "metric",
-      "command": "/etc/sensu/plugins/system/cpu-metrics.rb",
+      "command": "/etc/sensu/plugins/system/check-memory.sh",
       "interval": 10,
       "subscribers": [ "test" ],
       "handlers": [ "influxdb" ]

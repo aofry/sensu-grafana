@@ -31,8 +31,9 @@ class SensuToInfluxDB < Sensu::Handler
         values:{host: @event['client']['name'], value: thevalue,
                 ip: @event['client']['address'] }
       }
-      puts "adi--" + m
-      puts mydata
+      puts "adi--"
+      puts m
+      #puts mydata
 
       influxdb_data.write_point('foobar2', mydata)
     end
