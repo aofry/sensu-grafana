@@ -26,7 +26,7 @@ class SensuToInfluxDB < Sensu::Handler
       next unless m.count >= 3
       key = m[0].split('.', 1)[0]
       key.gsub!('.', '_')
-      thevalue = m[1].to_f
+      thevalue = m[-2].to_f
       mydata = {
         values:{host: @event['client']['name'], value: thevalue,
                 ip: @event['client']['address'] }
@@ -35,7 +35,7 @@ class SensuToInfluxDB < Sensu::Handler
       puts m
       #puts mydata
 
-      influxdb_data.write_point('foobar2', mydata)
+      influxdb_data.write_point(key, mydata)
     end
   end
 end
