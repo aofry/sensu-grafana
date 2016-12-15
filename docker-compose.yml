@@ -44,7 +44,7 @@ standalone_client:
 grafana:
     image: grafana/grafana
     volumes:
-        - ~/junk/grafana:/etc/grafana
+        - ~/junk/grafana:/var/lib/grafana
     links:
         - influxdb
     ports:
