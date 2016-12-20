@@ -26,3 +26,9 @@ You can view the uchiwa dashboard at http://localhost:3000
 
 to run sensu server:
 /opt/sensu/bin/sensu-server -d /etc/sensu/
+
+apt-get update
+apt-get install -y libgmp-dev build-essential
+/opt/sensu/embedded/bin/gem install sensu-plugins-kubernetes
+/opt/sensu/embedded/bin/check-kube-nodes-ready.rb
+https://github.com/sensu-plugins/sensu-plugins-kubernetes/blob/master/bin/check-kube-nodes-ready.rb

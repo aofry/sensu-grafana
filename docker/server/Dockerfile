@@ -1,6 +1,11 @@
 FROM matthewfranglen/sensu-base
 
+RUN apt-get update
+
+RUN apt-get install -y libgmp-dev build-essential
+
 RUN /opt/sensu/embedded/bin/gem install influxdb
+RUN /opt/sensu/embedded/bin/gem install sensu-plugins-kubernetes
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY config.json /etc/sensu/config.json
