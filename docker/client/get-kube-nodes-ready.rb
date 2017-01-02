@@ -49,8 +49,6 @@ class AllNodesAreReady < Sensu::Plugins::Kubernetes::CLI
       end
     end
 
-    puts client.get_nodes.length
-
     if failed_nodes.empty?
       ok 'Nodes are reporting as ready: ' + client.get_nodes.length.to_s + ' nodes'
     end

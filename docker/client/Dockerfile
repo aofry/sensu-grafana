@@ -10,6 +10,7 @@ COPY client.json /etc/sensu/conf.d/client.json
 COPY check-memory.sh /etc/sensu/plugins/check-memory.sh
 RUN mkdir /etc/sensu/plugins/system/
 COPY check-memory.sh /etc/sensu/plugins/system/check-memory.sh
+COPY get-kube-nodes-ready.rb /opt/sensu/embedded/bin/get-kube-nodes-ready.rb
 
 RUN chown -R sensu:sensu /etc/sensu
 RUN chmod +x /etc/sensu/plugins/check-memory.sh
