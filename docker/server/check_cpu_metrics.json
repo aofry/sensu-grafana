@@ -1,5 +1,12 @@
 {
   "checks": {
+    "k8s": {
+      "type": "metric",
+      "command": "/opt/sensu/embedded/bin/ruby /opt/sensu/embedded/bin/get-kube-nodes-ready.rb -s https://k8s.server -u admin -p password",
+      "interval": 30,
+      "subscribers": ["test"],
+      "handlers": [ "influxdb" ]
+    },
     "check_cpu_metrics": {
       "type": "metric",
       "command": "/etc/sensu/plugins/system/check-memory.sh",
